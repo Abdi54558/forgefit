@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Diet Plans — ForgeFit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/main.css"/>
+<link rel="stylesheet" href="../css/score.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo" href='index.html'>FORGE<span>FIT</span></div>
+  <ul class="nav-links">
+    <li><a href='index.html' id="nav-home">Home</a></li>
+    <li><a href='diet-goals.html' id="nav-goals">Diet Goals</a></li>
+    <li><a href='diet-plans.html' id="nav-plans" class="active">Diet Plans</a></li>
+    <li><a href='about.html' id="nav-about">About Us</a></li>
+    <li><a href='forge-score.html' id="nav-score" class="score-nav-link">⚡ Forge Score</a></li>
+  </ul>
+  <div class="nav-burger" onclick="toggleMenu()">&#9776;</div>
+</nav>
+
+
+<div class="page-hero mini"><div class="page-hero-content"><div class="section-label">NUTRITION BLUEPRINTS</div><h1>Recommended<br/><span class="accent">Diet Plans</span></h1><p>Science-based meal strategies for every goal.</p></div></div>
+<section class="plans-section">
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterPlans('all',this)">All Plans</button>
+    <button class="filter-btn" onclick="filterPlans('bulk',this)">💪 Bulk</button>
+    <button class="filter-btn" onclick="filterPlans('cut',this)">🔪 Cut</button>
+    <button class="filter-btn" onclick="filterPlans('maintain',this)">⚖️ Maintain</button>
+    <button class="filter-btn" onclick="filterPlans('recomp',this)">🔄 Recomp</button>
+  </div>
+  <div class="plans-grid" id="plansGrid">
+    <div class="plan-card anim-ready" data-category="bulk"><div class="plan-badge bulk">BULK</div><div class="plan-icon">🥩</div><h3 class="plan-name">Classic Lean Bulk</h3><p class="plan-desc">High-protein, moderate caloric surplus. Maximize muscle gain while minimizing fat.</p><div class="plan-macros"><div class="pm"><span class="pm-label">Protein</span><span class="pm-val protein-c">2.2g/kg</span></div><div class="pm"><span class="pm-label">Carbs</span><span class="pm-val carbs-c">50%</span></div><div class="pm"><span class="pm-label">Fats</span><span class="pm-val fats-c">25%</span></div><div class="pm"><span class="pm-label">Surplus</span><span class="pm-val">+300 kcal</span></div></div><div class="plan-foods"><strong>Key Foods:</strong> Chicken, brown rice, oats, eggs, sweet potato, Greek yogurt</div><div class="plan-tips"><div class="tip-item">✅ Eat 5–6 meals/day to sustain anabolism</div><div class="tip-item">✅ Post-workout: fast carbs + 40g protein</div><div class="tip-item">⚠️ Track weekly weight — aim +0.5 lbs/week</div></div><button class="plan-expand" onclick="togglePlan(this)">Sample Meal Day ↓</button><div class="meal-day hidden"><div class="meal"><strong>Breakfast:</strong> 4 eggs + oatmeal (100g) + banana</div><div class="meal"><strong>Lunch:</strong> Chicken (200g) + brown rice (150g)</div><div class="meal"><strong>Post-WO:</strong> Salmon (180g) + sweet potato</div><div class="meal total-kcal">≈ 3,200 kcal | 210g P | 380g C | 85g F</div></div></div>
+    <div class="plan-card anim-ready" data-category="bulk"><div class="plan-badge bulk">BULK</div><div class="plan-icon">💥</div><h3 class="plan-name">Dirty Bulk</h3><p class="plan-desc">Maximum caloric surplus for rapid size and strength. Best for hardgainers.</p><div class="plan-macros"><div class="pm"><span class="pm-label">Protein</span><span class="pm-val protein-c">2.0g/kg</span></div><div class="pm"><span class="pm-label">Carbs</span><span class="pm-val carbs-c">55%</span></div><div class="pm"><span class="pm-label">Fats</span><span class="pm-val fats-c">25%</span></div><div class="pm"><span class="pm-label">Surplus</span><span class="pm-val">+600 kcal</span></div></div><div class="plan-foods"><strong>Key Foods:</strong> Whole milk, pasta, ground beef, bread, peanut butter</div><div class="plan-tips"><div class="tip-item">✅ Ideal for skinny hardgainers (BMI &lt;20)</div><div class="tip-item">⚠️ Plan a cut after 16 weeks</div></div><button class="plan-expand" onclick="togglePlan(this)">Sample Meal Day ↓</button><div class="meal-day hidden"><div class="meal"><strong>Breakfast:</strong> 6 eggs + toast (4 slices) + OJ</div><div class="meal"><strong>Lunch:</strong> Ground beef pasta (300g) + cheese</div><div class="meal"><strong>Dinner:</strong> Steak (300g) + mashed potato</div><div class="meal total-kcal">≈ 4,200 kcal | 220g P | 500g C | 120g F</div></div></div>
+    <div class="plan-card anim-ready" data-category="cut"><div class="plan-badge cut">CUT</div><div class="plan-icon">🔥</div><h3 class="plan-name">High-Protein Cut</h3><p class="plan-desc">Aggressive protein to preserve muscle in a caloric deficit. The gold standard.</p><div class="plan-macros"><div class="pm"><span class="pm-label">Protein</span><span class="pm-val protein-c">2.8g/kg</span></div><div class="pm"><span class="pm-label">Carbs</span><span class="pm-val carbs-c">35%</span></div><div class="pm"><span class="pm-label">Fats</span><span class="pm-val fats-c">25%</span></div><div class="pm"><span class="pm-label">Deficit</span><span class="pm-val">-500 kcal</span></div></div><div class="plan-foods"><strong>Key Foods:</strong> Chicken, tilapia, egg whites, broccoli, berries</div><div class="plan-tips"><div class="tip-item">✅ Protein every 3–4 hours prevents catabolism</div><div class="tip-item">⚠️ Avoid deficit &gt;750 kcal — muscle loss risk</div></div><button class="plan-expand" onclick="togglePlan(this)">Sample Meal Day ↓</button><div class="meal-day hidden"><div class="meal"><strong>Breakfast:</strong> Egg whites (6) + spinach omelette</div><div class="meal"><strong>Lunch:</strong> Chicken (200g) + big salad</div><div class="meal"><strong>Dinner:</strong> Tilapia (200g) + broccoli + small rice</div><div class="meal total-kcal">≈ 1,800 kcal | 220g P | 160g C | 45g F</div></div></div>
+    <div class="plan-card anim-ready" data-category="cut"><div class="plan-badge cut">CUT</div><div class="plan-icon">🥑</div><h3 class="plan-name">Keto Cut</h3><p class="plan-desc">Very low carb forces fat burning (ketosis). Effective for rapid fat loss with appetite suppression.</p><div class="plan-macros"><div class="pm"><span class="pm-label">Protein</span><span class="pm-val protein-c">25%</span></div><div class="pm"><span class="pm-label">Carbs</span><span class="pm-val carbs-c">&lt;5%</span></div><div class="pm"><span class="pm-label">Fats</span><span class="pm-val fats-c">70%</span></div><div class="pm"><span class="pm-label">Deficit</span><span class="pm-val">-400 kcal</span></div></div><div class="plan-foods"><strong>Key Foods:</strong> Avocado, fatty fish, eggs, olive oil, nuts, cheese</div><div class="plan-tips"><div class="tip-item">✅ Takes 2–4 weeks to enter ketosis</div><div class="tip-item">⚠️ Electrolytes critical (Na, K, Mg)</div></div><button class="plan-expand" onclick="togglePlan(this)">Sample Meal Day ↓</button><div class="meal-day hidden"><div class="meal"><strong>Breakfast:</strong> 4 eggs in butter + bacon + avocado</div><div class="meal"><strong>Lunch:</strong> Salmon (200g) + salad + olive oil</div><div class="meal"><strong>Dinner:</strong> Ribeye (250g) + asparagus + butter</div><div class="meal total-kcal">≈ 2,000 kcal | 150g P | 20g C | 155g F</div></div></div>
+    <div class="plan-card anim-ready" data-category="maintain"><div class="plan-badge maintain">MAINTAIN</div><div class="plan-icon">⚖️</div><h3 class="plan-name">IIFYM Flexible Diet</h3><p class="plan-desc">If It Fits Your Macros — eat foods you enjoy. Maximum sustainability.</p><div class="plan-macros"><div class="pm"><span class="pm-label">Protein</span><span class="pm-val protein-c">2.0g/kg</span></div><div class="pm"><span class="pm-label">Carbs</span><span class="pm-val carbs-c">45%</span></div><div class="pm"><span class="pm-label">Fats</span><span class="pm-val fats-c">30%</span></div><div class="pm"><span class="pm-label">Balance</span><span class="pm-val">±0 kcal</span></div></div><div class="plan-foods"><strong>Key Foods:</strong> Anything — 80% whole foods, 20% treat yourself</div><div class="plan-tips"><div class="tip-item">✅ Most sustainable long-term approach</div><div class="tip-item">✅ No food is off-limits</div></div><button class="plan-expand" onclick="togglePlan(this)">Sample Meal Day ↓</button><div class="meal-day hidden"><div class="meal"><strong>Breakfast:</strong> Protein pancakes + fruit</div><div class="meal"><strong>Lunch:</strong> Turkey wrap + side salad</div><div class="meal"><strong>Dinner:</strong> Any balanced meal hitting macros</div><div class="meal total-kcal">≈ TDEE kcal | Flexible | Balanced</div></div></div>
+    <div class="plan-card anim-ready" data-category="recomp"><div class="plan-badge recomp">RECOMP</div><div class="plan-icon">🔄</div><h3 class="plan-name">Body Recomposition</h3><p class="plan-desc">Build muscle and lose fat simultaneously. Ideal for beginners or those returning after a break.</p><div class="plan-macros"><div class="pm"><span class="pm-label">Protein</span><span class="pm-val protein-c">2.5g/kg</span></div><div class="pm"><span class="pm-label">Train Days</span><span class="pm-val carbs-c">+150</span></div><div class="pm"><span class="pm-label">Rest Days</span><span class="pm-val fats-c">-200</span></div><div class="pm"><span class="pm-label">Net</span><span class="pm-val">≈ TDEE</span></div></div><div class="plan-foods"><strong>Key Foods:</strong> Lean meats, fish, eggs, vegetables, whole grains</div><div class="plan-tips"><div class="tip-item">✅ Eat more on training days, less on rest</div><div class="tip-item">⚠️ Slower progress — trust the process</div></div><button class="plan-expand" onclick="togglePlan(this)">Sample Meal Day ↓</button><div class="meal-day hidden"><div class="meal"><strong>Breakfast:</strong> Eggs (4) + oats (80g) + berries</div><div class="meal"><strong>Lunch:</strong> Ground turkey (200g) + quinoa</div><div class="meal"><strong>Dinner:</strong> Salmon (180g) + sweet potato</div><div class="meal total-kcal">≈ TDEE on training, -200 on rest days</div></div></div>
+  </div>
+</section>
+<section class="supplement-section">
+  <div class="section-label">EVIDENCE-BASED</div>
+  <h2 class="section-title">Core <span class="accent">Supplements</span></h2>
+  <div class="supp-grid">
+    <div class="supp-card anim-ready"><div class="supp-tier tier1">TIER 1</div><h4>Creatine Monohydrate</h4><p>Most studied supplement in history. Increases strength 5–15%. 5g/day, every day.</p></div>
+    <div class="supp-card anim-ready"><div class="supp-tier tier1">TIER 1</div><h4>Whey Protein</h4><p>Convenient high-quality protein source. Use to hit daily protein targets. 20–40g per shake.</p></div>
+    <div class="supp-card anim-ready"><div class="supp-tier tier2">TIER 2</div><h4>Caffeine</h4><p>Proven performance enhancer. 3–6mg/kg bodyweight pre-workout. Cycle to avoid tolerance.</p></div>
+    <div class="supp-card anim-ready"><div class="supp-tier tier2">TIER 2</div><h4>Vitamin D3 + K2</h4><p>Essential for testosterone &amp; immunity. Most people are deficient. 2,000–5,000 IU/day.</p></div>
+  </div>
+</section>
+<footer class="footer"><div class="footer-logo">FORGE<span>FIT</span></div><nav class="footer-nav"><a href='index.html'>Home</a><a href='diet-goals.html'>Diet Goals</a><a href='diet-plans.html'>Diet Plans</a><a href='about.html'>About Us</a></nav><p class="footer-copy">© 2025 ForgeFit.</p></footer>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us — ForgeFit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/main.css"/>
+<link rel="stylesheet" href="../css/score.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo" href='index.html'>FORGE<span>FIT</span></div>
+  <ul class="nav-links">
+    <li><a href='index.html' id="nav-home">Home</a></li>
+    <li><a href='diet-goals.html' id="nav-goals">Diet Goals</a></li>
+    <li><a href='diet-plans.html' id="nav-plans">Diet Plans</a></li>
+    <li><a href='about.html' id="nav-about" class="active">About Us</a></li>
+    <li><a href='forge-score.html' id="nav-score" class="score-nav-link">⚡ Forge Score</a></li>
+  </ul>
+  <div class="nav-burger" onclick="toggleMenu()">&#9776;</div>
+</nav>
+
+
+<div class="page-hero mini"><div class="page-hero-content"><div class="section-label">OUR STORY</div><h1>Built by Athletes<br/><span class="accent">For Athletes</span></h1><p>We got tired of conflicting nutrition advice. So we built the tool we always wanted.</p></div></div>
+<section class="mission-section">
+  <div class="mission-inner">
+    <div class="mission-text">
+      <div class="section-label">WHY WE EXIST</div>
+      <h2>The Problem With<br/><span class="accent">Fitness Nutrition</span></h2>
+      <p>The internet is drowning in conflicting nutrition advice — crash diets, magic supplements, influencer fads. We went back to the fundamentals: peer-reviewed science, thermodynamics, and real results.</p>
+      <p>ForgeFit was founded on one belief: <strong>knowledge is the best fitness tool you'll ever own.</strong></p>
+      <div class="mission-stats"><div class="m-stat"><span class="m-num">2019</span><span class="m-desc">Founded</span></div><div class="m-stat"><span class="m-num">12K+</span><span class="m-desc">Users helped</span></div><div class="m-stat"><span class="m-num">40+</span><span class="m-desc">Research papers</span></div></div>
+    </div>
+    <div class="about-card-grid">
+      <div class="about-val-card anim-ready"><div class="about-icon">🔬</div><h4>Science-First</h4><p>Every recommendation backed by peer-reviewed research.</p></div>
+      <div class="about-val-card anim-ready"><div class="about-icon">⚡</div><h4>No Gimmicks</h4><p>We won't sell you supplements. Just knowledge.</p></div>
+      <div class="about-val-card anim-ready"><div class="about-icon">🎯</div><h4>Precision</h4><p>Personalized to your body, not generic templates.</p></div>
+      <div class="about-val-card anim-ready"><div class="about-icon">🏆</div><h4>Results-Focused</h4><p>We measure success by your transformation.</p></div>
+    </div>
+  </div>
+</section>
+<section class="team-section">
+  <div class="section-label">THE TEAM</div>
+  <h2 class="section-title">Who's Behind <span class="accent">ForgeFit</span></h2>
+  <div class="team-grid">
+    <div class="team-card anim-ready"><div class="team-avatar" style="background:linear-gradient(135deg,#ff6b35,#ff3a00)">MR</div><h4>Marcus Reid</h4><span class="team-role">Founder & Head of Nutrition</span><p>Former competitive bodybuilder. Certified sports nutritionist with 12 years experience.</p><div class="team-creds"><span>CSCS Certified</span><span>ISSN Member</span></div></div>
+    <div class="team-card anim-ready"><div class="team-avatar" style="background:linear-gradient(135deg,#00d4aa,#00856f)">LP</div><h4>Lena Park</h4><span class="team-role">Exercise Physiologist</span><p>PhD in Exercise Science. Specializes in metabolic adaptation for body composition.</p><div class="team-creds"><span>PhD Kinesiology</span><span>ACSM Fellow</span></div></div>
+    <div class="team-card anim-ready"><div class="team-avatar" style="background:linear-gradient(135deg,#7b61ff,#4a2fdb)">JK</div><h4>James Kowalski</h4><span class="team-role">Lead Developer</span><p>Full-stack engineer and gym rat. Making nutrition science accessible through technology.</p><div class="team-creds"><span>10+ yrs dev</span><span>Comp. Powerlifter</span></div></div>
+  </div>
+</section>
+<section class="method-section">
+  <div class="method-inner">
+    <div class="section-label">HOW IT WORKS</div>
+    <h2>Our Calculation<br/><span class="accent">Methodology</span></h2>
+    <div class="method-steps">
+      <div class="method-step anim-ready"><div class="step-num">01</div><div class="step-content"><h4>BMR Calculation</h4><p>We use the <strong>Mifflin-St Jeor equation</strong> as the primary BMR formula, or the more accurate <strong>Katch-McArdle formula</strong> when body fat % is provided.</p></div></div>
+      <div class="method-step anim-ready"><div class="step-num">02</div><div class="step-content"><h4>TDEE Adjustment</h4><p>BMR is multiplied by an <strong>activity multiplier (1.2–1.9)</strong> based on validated research from Harris-Benedict adaptations.</p></div></div>
+      <div class="method-step anim-ready"><div class="step-num">03</div><div class="step-content"><h4>Goal-Based Surplus/Deficit</h4><p>A <strong>~500 kcal deficit ≈ ~0.5 kg fat loss/week</strong>. We recommend conservative adjustments to preserve muscle mass.</p></div></div>
+      <div class="method-step anim-ready"><div class="step-num">04</div><div class="step-content"><h4>Macro Distribution</h4><p>Protein targets based on <strong>Helms et al. (2014)</strong>. Carb/fat splits follow ISSN position stand guidelines.</p></div></div>
+    </div>
+  </div>
+</section>
+<section class="faq-section">
+  <div class="section-label">GOT QUESTIONS</div>
+  <h2 class="section-title">Common <span class="accent">Questions</span></h2>
+  <div class="faq-list">
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How accurate is the calorie calculator? <span class="faq-toggle">+</span></div><div class="faq-a">Our calculator is within ±200 kcal for most people using the Mifflin-St Jeor equation. Providing body fat % significantly improves accuracy via the Katch-McArdle formula.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Should I bulk or cut first? <span class="faq-toggle">+</span></div><div class="faq-a">If your body fat is above 20% (men) or 28% (women), prioritize cutting first. If you're lean (under 15%/23%), bulk. If you're in between, a recomp or slight bulk is appropriate.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">How long should a bulk or cut phase last? <span class="faq-toggle">+</span></div><div class="faq-a">Bulks: 12–20 weeks. Cuts: 8–16 weeks depending on your goal. Avoid endless cuts — they tank testosterone and metabolism.</div></div>
+    <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Is ForgeFit free to use? <span class="faq-toggle">+</span></div><div class="faq-a">Yes, completely free. All calculators, diet plans, and tips are accessible to everyone.</div></div>
+  </div>
+</section>
+<section class="contact-section">
+  <div class="contact-inner">
+    <h2>Get in <span class="accent">Touch</span></h2>
+    <p>Have questions, feedback, or want to collaborate?</p>
+    <div class="contact-form">
+      <div class="cf-row"><input type="text" placeholder="Your Name" class="cf-input"/><input type="email" placeholder="Email Address" class="cf-input"/></div>
+      <input type="text" placeholder="Subject" class="cf-input full-w"/>
+      <textarea placeholder="Your message..." class="cf-textarea"></textarea>
+      <button class="btn-primary" onclick="submitContact()">Send Message</button>
+      <div class="contact-success hidden" id="contactSuccess">✅ Message sent! We'll get back to you within 48 hours.</div>
+    </div>
+  </div>
+</section>
+<footer class="footer"><div class="footer-logo">FORGE<span>FIT</span></div><nav class="footer-nav"><a href='index.html'>Home</a><a href='diet-goals.html'>Diet Goals</a><a href='diet-plans.html'>Diet Plans</a><a href='about.html'>About Us</a></nav><p class="footer-copy">© 2025 ForgeFit.</p></footer>
+
+<script src="../js/app.js"></script>
+</body>
+</html>

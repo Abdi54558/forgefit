@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Diet Goals — ForgeFit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/main.css"/>
+<link rel="stylesheet" href="../css/score.css"/>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo" href='index.html'>FORGE<span>FIT</span></div>
+  <ul class="nav-links">
+    <li><a href='index.html' id="nav-home">Home</a></li>
+    <li><a href='diet-goals.html' id="nav-goals" class="active">Diet Goals</a></li>
+    <li><a href='diet-plans.html' id="nav-plans">Diet Plans</a></li>
+    <li><a href='about.html' id="nav-about">About Us</a></li>
+    <li><a href='forge-score.html' id="nav-score" class="score-nav-link">⚡ Forge Score</a></li>
+  </ul>
+  <div class="nav-burger" onclick="toggleMenu()">&#9776;</div>
+</nav>
+
+
+<div class="page-hero mini">
+  <div class="page-hero-content">
+    <div class="section-label">PERSONALIZED NUTRITION</div>
+    <h1>Diet Goals &amp;<br/><span class="accent">Calorie Calculator</span></h1>
+    <p>Enter your stats and get a precision plan tailored to your physique goals.</p>
+  </div>
+</div>
+<section class="calc-section">
+  <div class="calc-wrapper">
+    <div class="calc-form-panel">
+      <h3 class="panel-title">Your Stats</h3>
+      <div class="form-row two-col">
+        <div class="form-group"><label>Age</label><input type="number" id="age" placeholder="25" min="15" max="80"/></div>
+        <div class="form-group"><label>Biological Sex</label><select id="sex"><option value="male">Male</option><option value="female">Female</option></select></div>
+      </div>
+      <div class="form-row two-col">
+        <div class="form-group"><label>Weight</label><div class="input-unit"><input type="number" id="weight" placeholder="80"/><select id="weightUnit"><option value="kg">kg</option><option value="lbs">lbs</option></select></div></div>
+        <div class="form-group"><label>Height</label><div class="input-unit"><input type="number" id="height" placeholder="178"/><select id="heightUnit"><option value="cm">cm</option><option value="in">in</option></select></div></div>
+      </div>
+      <div class="form-group"><label>Activity Level</label><select id="activity"><option value="1.2">Sedentary (desk job, little/no exercise)</option><option value="1.375">Lightly Active (1-3 days/week)</option><option value="1.55" selected>Moderately Active (3-5 days/week)</option><option value="1.725">Very Active (6-7 days/week)</option><option value="1.9">Extremely Active (athlete / physical job)</option></select></div>
+      <div class="form-group"><label>Body Fat % <span class="optional">(optional)</span></label><input type="number" id="bodyFat" placeholder="e.g. 18" min="3" max="60"/></div>
+      <div class="form-group"><label>Your Goal</label>
+        <div class="goal-tabs">
+          <button class="goal-tab active" onclick="selectGoal(this,'cut')">🔪 Cut</button>
+          <button class="goal-tab" onclick="selectGoal(this,'maintain')">⚖️ Maintain</button>
+          <button class="goal-tab" onclick="selectGoal(this,'bulk')">💪 Bulk</button>
+          <button class="goal-tab" onclick="selectGoal(this,'recomp')">🔄 Recomp</button>
+        </div>
+      </div>
+      <div class="form-group" id="rateGroup">
+        <label>Rate of Change</label>
+        <div class="rate-slider-wrap">
+          <input type="range" id="rateSlider" min="1" max="3" step="1" value="2" oninput="updateRate(this)"/>
+          <div class="rate-labels"><span>Slow</span><span>Moderate</span><span>Aggressive</span></div>
+        </div>
+        <div class="rate-display" id="rateDisplay">Moderate: ±250 kcal/day</div>
+      </div>
+      <button class="btn-primary full" onclick="calculate()">Calculate My Plan</button>
+    </div>
+    <div class="results-panel" id="resultsPanel">
+      <div class="results-placeholder" id="resultsPlaceholder"><div class="placeholder-icon">📊</div><p>Fill in your stats and hit<br/><strong>Calculate My Plan</strong></p></div>
+      <div class="results-content hidden" id="resultsContent">
+        <h3 class="panel-title">Your Plan</h3>
+        <div class="result-highlight">
+          <div class="result-main"><span class="result-label">Daily Calorie Target</span><span class="result-big" id="targetCal">—</span><span class="result-unit">kcal / day</span></div>
+          <div class="result-sub-row"><div class="result-sub"><span>BMR</span><strong id="bmrVal">—</strong></div><div class="result-sub"><span>TDEE</span><strong id="tdeeVal">—</strong></div><div class="result-sub"><span>Surplus/Deficit</span><strong id="deltaVal">—</strong></div></div>
+        </div>
+        <div class="macro-section"><h4>Macro Breakdown</h4>
+          <div class="macro-bars">
+            <div class="macro-bar-row"><span class="macro-name">Protein</span><div class="macro-bar-track"><div class="macro-bar-fill protein" id="proteinBar"></div></div><span class="macro-grams" id="proteinG">—</span></div>
+            <div class="macro-bar-row"><span class="macro-name">Carbs</span><div class="macro-bar-track"><div class="macro-bar-fill carbs" id="carbsBar"></div></div><span class="macro-grams" id="carbsG">—</span></div>
+            <div class="macro-bar-row"><span class="macro-name">Fats</span><div class="macro-bar-track"><div class="macro-bar-fill fats" id="fatsBar"></div></div><span class="macro-grams" id="fatsG">—</span></div>
+          </div>
+        </div>
+        <div class="tips-section"><h4>Your Personalized Tips</h4><div class="tips-list" id="tipsList"></div></div>
+        <div class="projection-section"><h4>12-Week Projection</h4>
+          <div class="projection-bar"><div class="proj-start" id="projStart">Now</div><div class="proj-arrow">→</div><div class="proj-end" id="projEnd">Week 12</div></div>
+          <p class="proj-note" id="projNote"></p>
+        </div>
+        <button class="btn-primary full mt20" href='diet-plans.html'>See Recommended Diet Plans →</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bmi-section">
+  <div class="bmi-inner">
+    <div class="section-label">BODY COMPOSITION</div>
+    <h2>Understanding Your <span class="accent">BMI</span></h2>
+    <div class="bmi-scale">
+      <div class="bmi-track">
+        <div class="bmi-zone underweight">Underweight<br/>&lt;18.5</div>
+        <div class="bmi-zone normal">Normal<br/>18.5–24.9</div>
+        <div class="bmi-zone overweight">Overweight<br/>25–29.9</div>
+        <div class="bmi-zone obese">Obese<br/>30+</div>
+      </div>
+      <div class="bmi-indicator" id="bmiIndicator" style="left:45%"><div class="bmi-needle"></div><div class="bmi-label" id="bmiLabel">—</div></div>
+    </div>
+    <p class="bmi-note">BMI is a general guide. Use body fat % for more accurate assessment.</p>
+  </div>
+</section>
+<footer class="footer"><div class="footer-logo">FORGE<span>FIT</span></div><nav class="footer-nav"><a href='index.html'>Home</a><a href='diet-goals.html'>Diet Goals</a><a href='diet-plans.html'>Diet Plans</a><a href='about.html'>About Us</a></nav><p class="footer-copy">© 2025 ForgeFit.</p></footer>
+
+<script src="../js/app.js"></script>
+</body>
+</html>
