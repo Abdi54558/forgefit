@@ -1,0 +1,60 @@
+---
+import '../styles/forgefit-main.css';
+import '../styles/forgefit-score.css';
+
+interface Props {
+	title: string;
+	active: 'home' | 'goals' | 'plans' | 'about' | 'score';
+	footerCopy?: string;
+}
+
+const { title, active, footerCopy = '© 2025 ForgeFit. Built for athletes, by athletes.' } = Astro.props;
+const navClass = (key: Props['active'], extra = '') =>
+	[extra, active === key ? 'active' : ''].filter(Boolean).join(' ');
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<nav class="navbar" id="navbar">
+			<a class="nav-logo" href="/">FORGE<span>FIT</span></a>
+			<ul class="nav-links">
+				<li><a href="/" id="nav-home" class={navClass('home')}>Home</a></li>
+				<li><a href="/diet-goals" id="nav-goals" class={navClass('goals')}>Diet Goals</a></li>
+				<li><a href="/diet-plans" id="nav-plans" class={navClass('plans')}>Diet Plans</a></li>
+				<li><a href="/about" id="nav-about" class={navClass('about')}>About Us</a></li>
+				<li><a href="/forge-score" id="nav-score" class={navClass('score', 'score-nav-link')}>⚡ Forge Score</a></li>
+			</ul>
+			<button class="nav-burger" type="button" onclick="toggleMenu()" aria-label="Open navigation">&#9776;</button>
+		</nav>
+
+		<slot />
+
+		<footer class="footer">
+			<div class="footer-logo">FORGE<span>FIT</span></div>
+			<nav class="footer-nav">
+				<a href="/">Home</a>
+				<a href="/diet-goals">Diet Goals</a>
+				<a href="/diet-plans">Diet Plans</a>
+				<a href="/about">About Us</a>
+			</nav>
+			<p class="footer-copy">{footerCopy}</p>
+		</footer>
+
+		<script is:inline src="/app.js" defer></script>
+	</body>
+</html>

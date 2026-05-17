@@ -1,0 +1,109 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home — ForgeFit" active="home">
+	<section class="hero">
+		<div class="hero-bg-grid"></div>
+		<div class="orb orb-1"></div>
+		<div class="orb orb-2"></div>
+		<div class="orb orb-3"></div>
+		<div class="hero-content">
+			<div class="hero-tag">YOUR TRANSFORMATION STARTS NOW</div>
+			<h1 class="hero-title">FORGE<br /><span class="line-2 outline-text">YOUR</span><br />BODY</h1>
+			<p class="hero-sub">Calculate your calories, plan your diet,<br />and get expert tips to bulk or cut — all in one place.</p>
+			<div class="hero-cta">
+				<a class="btn-primary" href="/diet-goals">Calculate Now</a>
+				<a class="btn-ghost" href="/diet-plans">View Plans →</a>
+			</div>
+		</div>
+		<div class="hero-stats">
+			<div class="stat-card"><span class="stat-num">10K+</span><span class="stat-label">Athletes Transformed</span></div>
+			<div class="stat-card"><span class="stat-num">50+</span><span class="stat-label">Diet Plans</span></div>
+			<div class="stat-card"><span class="stat-num">100%</span><span class="stat-label">Science-Backed</span></div>
+		</div>
+	</section>
+
+	<section class="features">
+		<div class="section-label">WHAT WE OFFER</div>
+		<h2 class="section-title">Everything You Need<br />To <span class="accent">Dominate</span></h2>
+		<div class="features-grid">
+			<div class="feature-card anim-ready">
+				<div class="feature-icon">🔥</div>
+				<h3>Calorie Calculator</h3>
+				<p>Precision TDEE calculation. Know exactly how much to eat for your goal — whether cutting, maintaining, or bulking hard.</p>
+				<a class="card-link" href="/diet-goals">Calculate →</a>
+			</div>
+			<div class="feature-card featured anim-ready">
+				<div class="feature-icon">⚡</div>
+				<h3>Bulk &amp; Cut Tips</h3>
+				<p>Personalized strategies based on your body stats. Stop guessing. Our system tells you exactly what phase to be in.</p>
+				<a class="card-link" href="/diet-goals">Get Tips →</a>
+			</div>
+			<div class="feature-card anim-ready">
+				<div class="feature-icon">🥗</div>
+				<h3>Diet Plans</h3>
+				<p>Curated meal plans for every goal. High-protein, low-carb, IIFYM — we have the blueprint for your physique.</p>
+				<a class="card-link" href="/diet-plans">View Plans →</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="quick-section">
+		<div class="quick-inner">
+			<div class="quick-text">
+				<div class="section-label">FAST ESTIMATE</div>
+				<h2>What's your<br /><span class="accent">daily burn?</span></h2>
+				<p>Use our full calculator to get your precise TDEE and a custom calorie target for your exact goal.</p>
+				<a class="btn-primary" href="/diet-goals">Open Full Calculator</a>
+			</div>
+			<div class="quick-visual">
+				<div class="calorie-ring">
+					<svg viewBox="0 0 200 200" class="ring-svg">
+						<defs>
+							<linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+								<stop offset="0%" stop-color="#3b82f6" />
+								<stop offset="100%" stop-color="#06b6d4" />
+							</linearGradient>
+						</defs>
+						<circle cx="100" cy="100" r="80" class="ring-bg"></circle>
+						<circle cx="100" cy="100" r="80" class="ring-fill"></circle>
+					</svg>
+					<div class="ring-center"><span class="ring-val">2,450</span><span class="ring-unit">kcal avg</span></div>
+				</div>
+				<div class="macro-pills">
+					<div class="pill protein">Protein 30%</div>
+					<div class="pill carbs">Carbs 45%</div>
+					<div class="pill fats">Fats 25%</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="testimonials">
+		<div class="section-label">SUCCESS STORIES</div>
+		<h2 class="section-title">Real Results,<br />Real People</h2>
+		<div class="testi-grid">
+			<div class="testi-card anim-ready">
+				<div class="testi-quote">Lost 18lbs in 3 months following the cut plan. The calorie calculator was a game changer.</div>
+				<div class="testi-author"><div class="testi-avatar">JM</div><div><strong>Jake M.</strong><span>Cut Phase • -18 lbs</span></div></div>
+			</div>
+			<div class="testi-card anim-ready">
+				<div class="testi-quote">Gained 12lbs of lean muscle on the bulk plan without getting fat. Macros were perfect.</div>
+				<div class="testi-author"><div class="testi-avatar">SR</div><div><strong>Sara R.</strong><span>Bulk Phase • +12 lbs muscle</span></div></div>
+			</div>
+			<div class="testi-card anim-ready">
+				<div class="testi-quote">The tips section finally explained why my previous diet wasn't working. Total clarity.</div>
+				<div class="testi-author"><div class="testi-avatar">DK</div><div><strong>David K.</strong><span>Recomp • Body transformation</span></div></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="cta-banner">
+		<div class="cta-inner">
+			<h2>Ready to <span class="accent">Forge</span> Your Best Physique?</h2>
+			<p>Join thousands who've taken control of their nutrition.</p>
+			<a class="btn-primary large" href="/diet-goals">Start For Free</a>
+		</div>
+	</section>
+</Layout>
