@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Forge Score — ForgeFit" active="score">
+	<div class="page-hero mini score-hero">
+		<div class="page-hero-content">
+			<div class="section-label">PERFORMANCE ANALYTICS</div>
+			<h1>Your <span class="accent">Forge Score</span></h1>
+			<p>A real-time fitness readiness score based on your stats. Run the calculator first to unlock your full score.</p>
+		</div>
+		<div class="score-live-badge" id="scoreLiveBadge">
+			<span class="live-dot"></span> LIVE ANALYSIS
+		</div>
+	</div>
+
+	<section class="score-section">
+		<div class="score-wrapper">
+			<div class="score-gauge-panel">
+				<div class="gauge-label-top">FORGE SCORE</div>
+				<div class="gauge-container">
+					<svg class="gauge-svg" viewBox="0 0 300 180">
+						<defs>
+							<linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+								<stop offset="0%" stop-color="#1d4ed8" />
+								<stop offset="50%" stop-color="#3b82f6" />
+								<stop offset="100%" stop-color="#06b6d4" />
+							</linearGradient>
+							<filter id="gaugeGlow">
+								<feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+								<feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge>
+							</filter>
+						</defs>
+						<path d="M 30 160 A 120 120 0 0 1 270 160" fill="none" stroke="rgba(59,130,246,0.1)" stroke-width="18" stroke-linecap="round"></path>
+						<path id="gaugeFill" d="M 30 160 A 120 120 0 0 1 270 160" fill="none" stroke="url(#gaugeGrad)" stroke-width="18" stroke-linecap="round" stroke-dasharray="377" stroke-dashoffset="377" filter="url(#gaugeGlow)" style="transition:stroke-dashoffset 2s cubic-bezier(.4,0,.2,1)"></path>
+						<g id="gaugeTicks"></g>
+					</svg>
+					<div class="gauge-center">
+						<div class="gauge-num" id="gaugeNum">--</div>
+						<div class="gauge-grade" id="gaugeGrade">RUN CALCULATOR</div>
+					</div>
+				</div>
+				<div class="gauge-scale-labels">
+					<span>0</span><span>25</span><span>50</span><span>75</span><span>100</span>
+				</div>
+				<div class="score-verdict" id="scoreVerdict">
+					<div class="verdict-icon" id="verdictIcon">🔒</div>
+					<div class="verdict-text" id="verdictText">Calculate your stats on the Diet Goals page to unlock your personalized Forge Score.</div>
+				</div>
+			</div>
+
+			<div class="score-pillars">
+				<div class="pillars-title">Score Breakdown</div>
+				<div class="pillar-item" id="pillar-calorie"><div class="pillar-header"><span class="pillar-icon">🔥</span><span class="pillar-name">Calorie Alignment</span><span class="pillar-score" id="ps-calorie">--</span></div><div class="pillar-bar-track"><div class="pillar-bar-fill" id="pb-calorie"></div></div><div class="pillar-desc" id="pd-calorie">How well your calorie target matches your goal.</div></div>
+				<div class="pillar-item" id="pillar-macro"><div class="pillar-header"><span class="pillar-icon">🥗</span><span class="pillar-name">Macro Balance</span><span class="pillar-score" id="ps-macro">--</span></div><div class="pillar-bar-track"><div class="pillar-bar-fill" id="pb-macro"></div></div><div class="pillar-desc" id="pd-macro">Protein, carb, and fat distribution quality.</div></div>
+				<div class="pillar-item" id="pillar-activity"><div class="pillar-header"><span class="pillar-icon">⚡</span><span class="pillar-name">Activity Level</span><span class="pillar-score" id="ps-activity">--</span></div><div class="pillar-bar-track"><div class="pillar-bar-fill" id="pb-activity"></div></div><div class="pillar-desc" id="pd-activity">Your movement output relative to your goal.</div></div>
+				<div class="pillar-item" id="pillar-body"><div class="pillar-header"><span class="pillar-icon">💪</span><span class="pillar-name">Body Composition</span><span class="pillar-score" id="ps-body">--</span></div><div class="pillar-bar-track"><div class="pillar-bar-fill" id="pb-body"></div></div><div class="pillar-desc" id="pd-body">BMI and estimated body fat alignment.</div></div>
+			</div>
+		</div>
+
+		<div class="score-recs" id="scoreRecs" style="display:none">
+			<div class="recs-title">⚡ Priority Actions</div>
+			<div class="recs-grid" id="recsGrid"></div>
+		</div>
+
+		<div class="score-tracker-section">
+			<div class="section-label">PROGRESS TRACKING</div>
+			<h2 class="section-title">Weekly <span class="accent">Check-In</span></h2>
+			<p class="section-sub">Log your weekly stats. Your score history is saved locally.</p>
+			<div class="tracker-wrapper">
+				<div class="tracker-form">
+					<div class="tracker-row">
+						<div class="form-group"><label>This Week's Weight (kg)</label><input type="number" id="trackWeight" placeholder="e.g. 78.5" step="0.1" /></div>
+						<div class="form-group"><label>Energy Level (1-10)</label><input type="number" id="trackEnergy" placeholder="7" min="1" max="10" /></div>
+						<div class="form-group"><label>Training Sessions</label><input type="number" id="trackSessions" placeholder="4" min="0" max="14" /></div>
+					</div>
+					<div class="form-group"><label>Weekly Note</label><input type="text" id="trackNote" placeholder="How did this week feel?" /></div>
+					<button class="btn-primary" type="button" onclick="logWeek()">Log This Week</button>
+				</div>
+				<div class="tracker-chart">
+					<canvas id="weightChart" height="160"></canvas>
+					<div class="chart-empty" id="chartEmpty">Log your first week to see progress</div>
+				</div>
+			</div>
+			<div class="log-entries" id="logEntries"></div>
+		</div>
+	</section>
+</Layout>
